@@ -39,7 +39,7 @@ fun ItemPicturesScreen(picture: Picture, minSize: Dp) {// элемент лен�
 
     Card(
         shape = RoundedCornerShape(5.dp),
-        modifier = Modifier.size(minSize),
+        modifier = Modifier.size(minSize).padding(6.dp),
 
         //   colors = CardDefaults.cardColors(
         //       containerColor = Color.LightGray

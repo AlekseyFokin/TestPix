@@ -5,6 +5,7 @@ plugins {
     id("androidx.room")
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -73,6 +74,8 @@ dependencies {
     implementation(libs.androidx.paging)
 
     implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.navigation)
+    implementation(libs.kotlinx.serialization)
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)

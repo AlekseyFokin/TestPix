@@ -4,4 +4,21 @@
     <string name="error_message_search_field">поле поиска пусто</string>
 
     <string name="search_field_label">текст для поиска фото</string>
+
+    <string name="alert_dialog_screen_label_button_reload">Повторить загрузку</string>
+
+    <string name="alert_dialog_screen_label_button_dismiss">Отказаться</string>
+
+    <string name="alert_dialog_screen_label">Ошибка загрузки</string>
+
+    <string name="alert_dialog_screen_message">Сообщение об ошибке</string>
+
+    <string name="alert_dialog_unknown_host_exception_message">Отсутствует подключение к Internet</string>
+
+    <string name="alert_dialog_other_exception_message">Ошибочный запрос</string>
+
+    <string name="bottom_tab_name_api_gallary">Галерея Flickr</string>
+
+    <string name="bottom_tab_name_db_gallary">Моя галерея</string>
+
 </resources>
