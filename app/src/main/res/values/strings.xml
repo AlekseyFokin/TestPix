@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Pix</string>
+
+    <string name="error_message_search_field">поле поиска пусто</string>
+
+    <string name="search_field_label">текст для поиска фото</string>
+</resources>
