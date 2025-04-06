@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
+
 }
 
 android {
@@ -72,9 +73,11 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging)
+    implementation(libs.androidx.compose.material)
 
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation)
+    implementation(libs.hilt.navigation.compose)
     implementation(libs.kotlinx.serialization)
 
     implementation(libs.kotlinx.coroutines.core)

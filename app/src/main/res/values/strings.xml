@@ -21,4 +21,6 @@
 
     <string name="bottom_tab_name_db_gallary">Моя галерея</string>
 
+    <string name="db_gallery_button_clear_db">Очистить галарею</string>
+
 </resources>

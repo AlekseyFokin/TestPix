@@ -10,11 +10,13 @@ import com.example.pix.presentation.navigation.Routes.FlickrApiGallaryRoute
 import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
+
 @Serializable
 sealed class BottomTabs<T>(
     val route: T,
     val titleResId: Int,
-    @Contextual val icon: ImageVector
+    @Contextual
+    val icon: ImageVector//
 ) {
     @Serializable
     data object FlickrApiGallary : BottomTabs<FlickrApiGallaryRoute>(
@@ -23,7 +25,7 @@ sealed class BottomTabs<T>(
         icon = Icons.Filled.Star
     )
 
-    @Serializable
+  @Serializable
     data object DbGallery : BottomTabs<DataBaseGallaryRoute>(
         route = DataBaseGallaryRoute,
         titleResId = R.string.bottom_tab_name_db_gallary,

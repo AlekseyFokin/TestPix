@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.pullrefresh.pullRefresh
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -23,14 +26,14 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.pix.R
 import com.example.pix.presentation.ui.screens.composefun.AlertDialogScreen
+import com.example.pix.presentation.ui.screens.composefun.LoadingIndicator
 import com.example.pix.presentation.ui.screens.composefun.SearchPane
 import java.net.UnknownHostException
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun PicturesScreen(vm: PicturesViewModel = viewModel()) {
-    //  val searchString = vm.searchString.collectAsState()
+fun PicturesScreen(vm: PicturesViewModel) {
 
-    //val clickStartRequestButton: () -> Unit = { vm.startRequest() }// запуск запроса
     val isNotCancelErrorMessage = remember { mutableStateOf(true) }
 
     val clickCancelErrorMessage: () -> Unit =
@@ -80,6 +83,7 @@ fun PicturesScreen(vm: PicturesViewModel = viewModel()) {
                 horizontalArrangement = Arrangement.SpaceAround,
                 verticalArrangement = Arrangement.SpaceAround,
                 contentPadding = PaddingValues(top = 18.dp, bottom = 18.dp)
+
             ) {
                 items(
                     count = picturesData.itemCount,
@@ -91,18 +95,12 @@ fun PicturesScreen(vm: PicturesViewModel = viewModel()) {
                         )
                     }
                 }
+
             }
         }
         when {// обработка состояний
             picturesData.loadState.append is LoadState.Loading -> { // загрузка-добавление данных в существующий список
-                Box(
-                    modifier = Modifier
-                        .padding(top = 26.dp)
-                ) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.Center)
-                    )
-                }
+                LoadingIndicator()
             }
 
             ((picturesData.loadState.append is LoadState.Error) && (isNotCancelErrorMessage.value)) -> {// ошибка при добавлении данных
@@ -121,11 +119,7 @@ fun PicturesScreen(vm: PicturesViewModel = viewModel()) {
             }
 
             picturesData.loadState.refresh is LoadState.Loading -> {// загрузка списка с нуля
-                Box {
-                    CircularProgressIndicator(
-                        modifier = Modifier.align(Alignment.Center)
-                    )
-                }
+                LoadingIndicator()
             }
 
             ((picturesData.loadState.refresh is LoadState.Error) && (isNotCancelErrorMessage.value)) -> {// ошибка при загрузке списка с нуля

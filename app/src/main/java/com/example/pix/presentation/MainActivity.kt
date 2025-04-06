@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.PixTheme
 import com.example.pix.R
+import com.example.pix.presentation.ui.screens.MainScreen
 import com.example.pix.presentation.ui.screens.PicturesScreen
-import com.example.pix.presentation.ui.screens.composefun.MainScreen
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +31,7 @@ class MainActivity : ComponentActivity() {
 //                    )
 //                }
                 MainScreen(navController)
-                         //    PicturesScreen()
+           //                  PicturesScreen()
             }
         }
 

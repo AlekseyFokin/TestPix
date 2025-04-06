@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+//import androidx.navigation.NavController
+
 @Composable
 fun AppBottomNavigation(
     navController: NavController,
@@ -38,9 +40,9 @@ fun AppBottomNavigation(
     )
 
     NavigationBar(
-        containerColor = MaterialTheme.colorScheme.tertiary,
-        contentColor = MaterialTheme.colorScheme.tertiary,
-        modifier = Modifier.height(65.dp)
+//        containerColor = MaterialTheme.colorScheme.tertiary,
+//        contentColor = MaterialTheme.colorScheme.tertiary,
+        modifier = Modifier.height(100.dp)
     ) {
 
 
