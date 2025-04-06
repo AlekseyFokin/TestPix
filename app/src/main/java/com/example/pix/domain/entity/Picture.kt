@@ -1,6 +1,4 @@
 package com.example.pix.domain.entity
-
-import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
