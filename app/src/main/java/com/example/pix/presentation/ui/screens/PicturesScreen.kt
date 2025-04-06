@@ -25,6 +25,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.pix.R
+import com.example.pix.domain.entity.Picture
 import com.example.pix.presentation.ui.screens.composefun.AlertDialogScreen
 import com.example.pix.presentation.ui.screens.composefun.LoadingIndicator
 import com.example.pix.presentation.ui.screens.composefun.SearchPane
@@ -32,7 +33,7 @@ import java.net.UnknownHostException
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun PicturesScreen(vm: PicturesViewModel) {
+fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
 
     val isNotCancelErrorMessage = remember { mutableStateOf(true) }
 
@@ -91,7 +92,7 @@ fun PicturesScreen(vm: PicturesViewModel) {
                 { index ->
                     if (picturesData[index] != null) {
                         ItemPicturesScreen(
-                            picturesData[index]!!, minSize
+                            picturesData[index]!!, minSize,putPicture
                         )
                     }
                 }

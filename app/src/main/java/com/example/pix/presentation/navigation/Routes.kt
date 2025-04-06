@@ -9,7 +9,7 @@ sealed class Routes {
     data object FlickrApiGallaryRoute : Routes()
 
     @Serializable
-    data class OnlyOnePictureRoute(val picture: Picture): Routes()//(val pic: Picture) : Routes()
+    data class OnlyOnePictureRoute(val url: String): Routes()//(val pic: Picture) : Routes()
 
     @Serializable
     data object DataBaseGallaryRoute : Routes()

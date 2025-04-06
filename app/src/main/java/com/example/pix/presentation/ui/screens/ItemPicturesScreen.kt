@@ -35,12 +35,12 @@ import com.example.pix.domain.entity.Picture
 
 
 @Composable
-fun ItemPicturesScreen(picture: Picture, minSize: Dp) {// элемент ленивого списка фото
+fun ItemPicturesScreen(picture: Picture, minSize: Dp, putPicture:(String)->Unit) {// элемент ленивого списка фото
 
     Card(
         shape = RoundedCornerShape(5.dp),
         modifier = Modifier.size(minSize).padding(6.dp),
-
+        onClick ={putPicture(picture.url)}
         //   colors = CardDefaults.cardColors(
         //       containerColor = Color.LightGray
         //    ),

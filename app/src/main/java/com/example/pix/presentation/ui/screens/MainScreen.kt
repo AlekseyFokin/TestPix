@@ -9,6 +9,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 
 import com.example.pix.presentation.navigation.AppBottomNavigation
 import com.example.pix.presentation.navigation.Routes
@@ -30,13 +31,19 @@ fun MainScreen(navController: NavHostController) {
             ) {
                 composable<Routes.FlickrApiGallaryRoute> {
                     // PicturesScreen({navController.navigate(Routes.OnlyOnePictureRoute("url"))})
-                    PicturesScreen(vm= hiltViewModel<PicturesViewModel>())
+                    PicturesScreen(vm = hiltViewModel<PicturesViewModel>(),putPicture=
+                        {
+                            navController.navigate(Routes.OnlyOnePictureRoute(it))
+                        }
+                 )
                 }
 //                composable<Routes.OnlyOnePictureRoute> {
 ////                    OnlyOnePictureScreen()
 ////                } //{ navController.navigate(Routes.FlickrApiGallaryRoute) }
-                composable<Routes.DataBaseGallaryRoute> {
-                    DataBaseGallaryScreen()
+                composable<Routes.OnlyOnePictureRoute> {
+                    backStackEntry ->
+                    val pictureData = backStackEntry.toRoute<Routes.OnlyOnePictureRoute>()
+                    OnlyOnePictureScreen(pictureData.url)
                 }
             }
         }
