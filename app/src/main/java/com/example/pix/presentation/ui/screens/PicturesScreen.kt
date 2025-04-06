@@ -61,7 +61,7 @@ fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
             isNotCancelErrorMessage.value = true
         }// установка строки поиска
 
-    val listState = rememberLazyListState()
+            //   val listState = rememberLazyListState()
 
     val isLoading: Boolean = (picturesData.loadState.refresh == LoadState.Loading)
 
@@ -142,9 +142,3 @@ fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
     }
 }
 
-
-class PicturesScreenCompanion() {
-    companion object {
-        const val LIST_OF_PICTURES_TEST_TAG = "picsList"
-    }
-}

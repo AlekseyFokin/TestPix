@@ -13,7 +13,7 @@ class FlickrRepository @Inject constructor(
         page: Int = 1,
         count: Int = 20
     ): List<Picture> {
-        delay(5000)// чтобы показать, что лоадер работает
+     //   delay(5000)// чтобы показать, что лоадер работает
         val result = flickrApi.searchPhotos(text ?: DEFAULT_SEARCH_STRING, page, count)
         if (result.stat!="ok") {throw Exception("${result.code}: ${result.message}") }
         val listPhotoDto = result.photos?.photo ?: emptyList<PhotoDto>()

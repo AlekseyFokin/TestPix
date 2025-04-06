@@ -8,8 +8,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose.PixTheme
 import com.example.pix.R
 import com.example.pix.presentation.ui.screens.MainScreen
-import com.example.pix.presentation.ui.screens.PicturesScreen
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,21 +17,12 @@ class MainActivity : ComponentActivity() {
 
         setContentView(R.layout.main_activity)
 
-
         enableEdgeToEdge()
         setContent {
             PixTheme {
                 val navController = rememberNavController()
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
                 MainScreen(navController)
-           //                  PicturesScreen()
             }
         }
-
     }
 }

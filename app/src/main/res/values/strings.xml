@@ -17,10 +17,4 @@
 
     <string name="alert_dialog_other_exception_message">Ошибочный запрос</string>
 
-    <string name="bottom_tab_name_api_gallary">Галерея Flickr</string>
-
-    <string name="bottom_tab_name_db_gallary">Моя галерея</string>
-
-    <string name="db_gallery_button_clear_db">Очистить галарею</string>
-
 </resources>

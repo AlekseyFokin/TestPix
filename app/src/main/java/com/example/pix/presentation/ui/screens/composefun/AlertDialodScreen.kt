@@ -30,7 +30,6 @@ fun AlertDialogScreen(
         shape = RectangleShape,
         onDismissRequest = {
             resetError()
-            //resetErrorMessage()
         },
         title = {
             Text(
