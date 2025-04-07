@@ -19,4 +19,3 @@ interface FlickrApi {
         private const val SEARCH_URL = "/services/rest/?method=flickr.photos.search&api_key=da9d38d3dee82ec8dda8bb0763bf5d9c&format=json&nojsoncallback=1"
     }
 }
-//getRecent

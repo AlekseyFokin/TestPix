@@ -26,12 +26,6 @@ class FlickrRepository @Inject constructor(
         return listOfPicture
     }
 
-//    private fun castPhotoDtoToPicture(photo: PhotoDto): Picture {
-//        return Picture(
-//            "$PICTURE_URL_START/${photo.server}/${photo.id}_${photo.secret}_$PICTURE_URL_END",
-//            photo.title
-//        )
-//    }
 
     companion object {
         const val PICTURE_URL_START = "https://live.staticflickr.com/"

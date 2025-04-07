@@ -27,7 +27,7 @@ import java.net.UnknownHostException
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
+fun PicturesScreen(vm: PicturesViewModel, putPicture: (String) -> Unit) {
 
     val isNotCancelErrorMessage = remember { mutableStateOf(true) }
 
@@ -55,7 +55,6 @@ fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
             isNotCancelErrorMessage.value = true
         }// установка строки поиска
 
-            //   val listState = rememberLazyListState()
 
     val isLoading: Boolean = (picturesData.loadState.refresh == LoadState.Loading)
 
@@ -86,7 +85,7 @@ fun PicturesScreen(vm: PicturesViewModel, putPicture:(String)->Unit) {
                 { index ->
                     if (picturesData[index] != null) {
                         ItemPicturesScreen(
-                            picturesData[index]!!, minSize,putPicture
+                            picturesData[index]!!, minSize, putPicture
                         )
                     }
                 }

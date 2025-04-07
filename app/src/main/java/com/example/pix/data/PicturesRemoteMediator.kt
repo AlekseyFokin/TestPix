@@ -12,7 +12,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 @OptIn(ExperimentalPagingApi::class)
 class PicturesRemoteMediator @AssistedInject constructor(
@@ -31,19 +30,18 @@ class PicturesRemoteMediator @AssistedInject constructor(
         pageIndex =
             getPageIndex(loadType) ?: return MediatorResult.Success(endOfPaginationReached = true)
 
-        val limit=state.config.pageSize
-        val offset=pageIndex*limit
+        val limit = state.config.pageSize
+        val offset = pageIndex * limit
 
-        return try{
-            val picturesDbo=fetchPictures(limit,offset)
-            if (loadType== LoadType.REFRESH){
+        return try {
+            val picturesDbo = fetchPictures(limit, offset)
+            if (loadType == LoadType.REFRESH) {
                 pictureDao.refresh(picturesDbo)
-            } else{
+            } else {
                 pictureDao.insertAll(picturesDbo)
             }
-            MediatorResult.Success(endOfPaginationReached = picturesDbo.size<limit)
-        }
-        catch (e:Exception){
+            MediatorResult.Success(endOfPaginationReached = picturesDbo.size < limit)
+        } catch (e: Exception) {
             MediatorResult.Error(e)
         }
     }
@@ -57,13 +55,15 @@ class PicturesRemoteMediator @AssistedInject constructor(
         return pageIndex
     }
 
-    private suspend fun fetchPictures(limit:Int, offset:Int):List<PictureDbo>{
-        val listPictureDbo=mutableListOf<PictureDbo>()
-         val response= flickrApi.searchPhotos(queryString.value,pageIndex).photos?.photo
-        if (response!=null) {response.map {
-            photoDto->listPictureDbo.add(photoDto.toPictureDbo())
-        }}
-return listPictureDbo
+    private suspend fun fetchPictures(limit: Int, offset: Int): List<PictureDbo> {
+        val listPictureDbo = mutableListOf<PictureDbo>()
+        val response = flickrApi.searchPhotos(queryString.value, pageIndex).photos?.photo
+        if (response != null) {
+            response.map { photoDto ->
+                listPictureDbo.add(photoDto.toPictureDbo())
+            }
+        }
+        return listPictureDbo
     }
 
     @AssistedFactory

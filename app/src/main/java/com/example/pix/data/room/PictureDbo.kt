@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "pictures")
 data class PictureDbo (
-   // @PrimaryKey(autoGenerate = true)
+
     @PrimaryKey
     val id: String,
     val title: String,

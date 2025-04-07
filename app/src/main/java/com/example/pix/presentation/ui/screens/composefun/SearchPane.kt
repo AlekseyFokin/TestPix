@@ -62,7 +62,6 @@ fun SearchPane(
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
             modifier = Modifier
-                //  .background(color = MaterialTheme.colorScheme.background, shape = CircleShape)
                 .fillMaxWidth()
                 .border(1.dp, Color.Black, CircleShape),
             shape = CircleShape,
