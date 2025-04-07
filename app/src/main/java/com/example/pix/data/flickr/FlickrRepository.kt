@@ -1,6 +1,7 @@
 package com.example.pix.data.flickr
 
 import com.example.pix.data.flickr.dto.PhotoDto
+import com.example.pix.data.flickr.mapper.toEntity
 import com.example.pix.domain.entity.Picture
 import javax.inject.Inject
 
@@ -19,18 +20,18 @@ class FlickrRepository @Inject constructor(
         val listOfPicture = mutableListOf<Picture>()
         if (listPhotoDto.isNotEmpty()) {
             listPhotoDto.map { photo ->
-                listOfPicture.add(castPhotoDtoToPicture(photo))
+                listOfPicture.add(photo.toEntity())
             }
         }
         return listOfPicture
     }
 
-    private fun castPhotoDtoToPicture(photo: PhotoDto): Picture {
-        return Picture(
-            "$PICTURE_URL_START/${photo.server}/${photo.id}_${photo.secret}_$PICTURE_URL_END",
-            photo.title
-        )
-    }
+//    private fun castPhotoDtoToPicture(photo: PhotoDto): Picture {
+//        return Picture(
+//            "$PICTURE_URL_START/${photo.server}/${photo.id}_${photo.secret}_$PICTURE_URL_END",
+//            photo.title
+//        )
+//    }
 
     companion object {
         const val PICTURE_URL_START = "https://live.staticflickr.com/"

@@ -18,7 +18,7 @@ class PicturePagingSource(val query:String?, val repository: FlickrRepository) :
             onSuccess = {
                 Page(
                     data = it,
-                    prevKey = null,//params.key?.let { it-1 },
+                    prevKey = null,
                     nextKey = if (it.isEmpty() == true) null else page + 1
                 )
             },

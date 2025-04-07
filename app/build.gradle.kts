@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging)
+    implementation(libs.androidx.room.paging)
     implementation(libs.androidx.compose.material)
 
     implementation(libs.lifecycle.viewmodel.compose)
